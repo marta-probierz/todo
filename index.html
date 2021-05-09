@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TO-DO</title>
+    <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+
+
+<body>
+
+<div class="container-all">
+    
+    <section class="main">
+        <h1>TODO</h1>
+        <h3>app</h3>
+    </section>
+
+<div class="container-other">
+    <form class="form">
+        <div class="form-area">
+            <label for="todotask" class="form-label" style="font-size: 16px;">Add new task:</label>
+            <textarea name="todotask" id="todotask"></textarea>
+        </div>
+        <div class="form-area">
+            <input type="image" src="add.png" title="Add new task">
+        </div>
+    </form>
+
+<div class="container-bottom">
+    <section class="listoftasks">
+        <div class="listoftasks-header">
+            <div class='lists'>List of tasks:</div>
+            <form class="listoftasks-search-form">
+                <input type="search" class="listoftasks-list" placeholder="Seach">
+            </form>
+        </div>
+
+        <div class="list">
+            <!-- list of tasks here -->
+        </div>
+    </section>
+</div>  
+
+<template id="elementTemplate">
+<div id="bottom-tasks">
+    <section class="newtask">
+        <h3 class="element-date"></h3>
+        <button class="newtask-delete" title="Delete the task"></button>
+    </section>
+<div class="element-text"></div>
+</div>
+</template>
+
+</div>
+</div>
+</body>
+</html>
