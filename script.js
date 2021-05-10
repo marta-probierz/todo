@@ -1,15 +1,19 @@
-document.addEventListener('DOMContentLoaded', () => {
-    const todoList = document.querySelector('.list');
-    const todoForm = document.querySelector('.form');
-    const todoSearch = document.querySelector('.listoftasks-list');
-    const todoTextarea = todoForm.querySelector('textarea');
+const todoList = document.querySelector('.list');
+const todoForm = document.querySelector('.form');
+const todoSearch = document.querySelector('.listoftasks-list');
+const todoTextarea = todoForm.querySelector('textarea');
+
 
     function addTask(text) {
+
+        // create new element
         const element = document.createElement('div');
         element.classList.add('element');
         const elementInner = document.querySelector('#elementTemplate').content.cloneNode(true);
         element.append(elementInner);
 
+
+        // get date
         const date = new Date();
 
         let day = date.getDate();
@@ -35,6 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dateText = `${day}.${month}.${date.getFullYear()}, ${hour}:${minute}`;
 
 
+        // add everything
         element.querySelector('.element-date').innerText = dateText;
 
         element.querySelector('.element-text').innerText = text;
@@ -42,6 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         todoList.append(element);
     }
 
+    // add new element to the list (button)
     todoForm.addEventListener('submit', e => {
         e.preventDefault();
         if (todoTextarea.value !== '') {
@@ -50,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // add new element to the list (enter)
     todoForm.addEventListener('keyup', e => {
         if (e.code === 'Enter') {
             e.preventDefault();
@@ -58,12 +65,15 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // delete a task
     todoList.addEventListener('click', e => {
         if (e.target.classList.contains('newtask-delete')) {
             e.target.closest('.element').remove();
         }
     });
 
+
+    // search form
     todoSearch.addEventListener('input', () => {
         const val = todoSearch.value;
         const elems = todoList.querySelectorAll('.element');
@@ -78,4 +88,3 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     });
-});
